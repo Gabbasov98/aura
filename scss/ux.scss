@@ -16,7 +16,9 @@
 .btn-blue {
     background-color: #1faeea;
     color: #ffffff;
-    &:hover {
+    &:hover,
+    &:active,
+    &:focus {
         background-color: rgba(#1faeea, 0.8);
         color: #ffffff;
     }
@@ -29,6 +31,16 @@
         opacity: 0.9;
         color: #ffffff;
     }
+    &:active,
+    &:focus {
+        background-image: linear-gradient(34.0deg, #349c49 30%, #3fb3d1 70%);
+    }
+}
+
+.truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 input[type="date"] {
@@ -61,10 +73,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 0;
     border: 1px solid #E3DED8;
     border-radius: 4px;
+    height: 33px;
+    border: 1px solid #37af62;
     &:active,
     &.open,
     &:focus {
-        border: 1px solid #E3DED8;
+        border: 1px solid #37af62;
     }
     span {
         display: flex;
@@ -72,15 +86,22 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         width: 100%;
         height: 100%;
         padding: 0 10px;
-        background-image: url(../img/arrow.svg);
+        background-image: url(../img/arrow_select.png);
         background-repeat: no-repeat;
-        background-position: right 13px center;
-        font-size: 15px;
+        background-position: right 12px center;
+        background-size: 15px auto;
+        font-size: 14px;
+        color: #585858;
+        @media screen and (max-width: 576px) {
+            background-size: 11px auto;
+            background-position: right 7px center;
+            font-size: 12px;
+        }
     }
     .list {
         margin-top: 1px;
         background: #FFFFFF;
-        border: 1px solid #E3DED8;
+        border: 1px solid #37af62;
         box-shadow: 0px 5px 15px rgba(164, 156, 147, 0.5);
         border-radius: 5px;
         max-height: 185px;
@@ -116,11 +137,56 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     & .option:hover,
     & .option.focus,
     & .option.selected.focus {
-        background: linear-gradient(0deg, #F9F3D7, #F9F3D7), linear-gradient(0deg, #F9F3D7, #F9F3D7), linear-gradient(0deg, #F9F3D7, #F9F3D7), linear-gradient(0deg, #F9F3D7, #F9F3D7), linear-gradient(0deg, #F9F3D7, #F9F3D7), linear-gradient(0deg, #F9F3D7, #F9F3D7), linear-gradient(0deg, #F9F3D7, #F9F3D7), #F9F3D7;
-        color: #A97D41;
+        background: #37af62;
         font-weight: 400;
     }
-    & .option:hover {
-        color: #000;
+}
+
+.card {
+    &__top {
+        height: 175px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 10px;
+        img {
+            min-height: 100%;
+            min-width: 100%;
+            display: block;
+        }
+        @media screen and (max-width: 576px) {
+            height: unset;
+            img {
+                min-height: unset;
+                min-width: unset;
+                width: 100%;
+            }
+        }
+    }
+    &__btn {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &__info {
+        margin-top: 13px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__author,
+    &__price,
+    &__subtitle {
+        font-size: 14px;
+        line-height: 1.2;
+        font-weight: 400;
+        color: #9c9c9c;
+    }
+    &__title {
+        font-size: 18px;
+        line-height: 1.2;
+        font-weight: 400;
+        color: #000000;
     }
 }

@@ -1,33 +1,13 @@
-function slider() {
-    var swiper = new Swiper('.feedback .swiper-container', {
-        slidesPerView: 5,
-        spaceBetween: 0,
-        centeredSlides: true,
-        loop: true,
-        navigation: {
-            nextEl: '.feedback .swiper-button-next',
-            prevEl: '.feedback .swiper-button-prev',
-        },
-        pagination: {
-            el: '.feedback .swiper-pagination',
-            type: 'bullets',
-            clickable: true,
-        },
-        breakpoints: {
-            320: {
-                slidesPerView: 1,
-                centeredSlides: false,
-            },
-            992: {
-                slidesPerView: 5,
-                centeredSlides: true,
-            },
-        }
+function tabsSlider() {
+    var swiper = new Swiper('.all-stream__tabs .swiper-container', {
+        slidesPerView: 'auto',
+        spaceBetween: 12,
     })
 }
 
 $(document).ready(function() {
     $(".select").niceSelect()
+    tabsSlider()
 
     $(".tab").click(function() {
         let path = $(this).attr("data-tab-path")
