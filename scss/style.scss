@@ -1,0 +1,23 @@
+@import 'reset';
+@import 'ux';
+@import 'layout';
+@import 'index';
+.wrapper {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
+}
+
+.content {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 1350px) {
+    .container {
+        width: 1320px;
+    }
+}
